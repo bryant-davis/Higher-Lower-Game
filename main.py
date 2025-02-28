@@ -8,10 +8,6 @@
 import game_data
 import random
 
-print(len(game_data.data))
-print("########")
-
-
 def get_choices():
     choice_index = random.randint(1, 50)
     choice = game_data.data[choice_index]
@@ -20,21 +16,40 @@ def get_choices():
     choice_to_list.append(choice["follower_count"])
     choice_to_list.append(choice["description"])
     choice_to_list.append(choice["country"])
-    print(choice_to_list)
     return choice_to_list
 
-def populate_choices():
+def populate_compare(name, desc, country):
     print("Higher vs. Lower")
-    print(f'Compare A: {choice_to_list[0]}')
-    #print("Versues")
-    #print(f'Against B: {second}')
-    
+    print(f'Compare A: {name}, a {desc}, from {country}.')
+
+def populate_against(name, desc, country):
+    print("VERSUS")
+    print(f'Against B: {name}, a {desc}, from {country}.')
+
+
+
 choice_1 = get_choices()
+choice_2 = get_choices()
+score = 0
 
-#populate_choices(apples, bananas)
 
-#input(f'Who has more followers? Type A or B')
+populate_compare(choice_1[0], choice_1[2], choice_1[3])
+populate_against(choice_2[0], choice_2[2], choice_2[3])
 
-get_choices()
-print("######")
-print(choice_1)
+guess = input("Who has more followers? Type 'A' or 'B':  ")
+
+if choice_1[1] > choice_2[1]:
+    winning_answer = "A"
+    winning_list = choice_1
+else:
+    winning_answer = "B"
+    winning_list = choice_2
+
+if guess == winning_answer:
+    print('you won!')
+    choice_1 = winning_list
+    score += 1
+else:
+    print("you lost!")
+    print(f'Final score: {score}')
+    
