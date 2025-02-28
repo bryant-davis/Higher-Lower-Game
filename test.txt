@@ -1,5 +1,0 @@
-Hello World!
-
-My name is Bryant. I'm learning to master git.
-
-My favorite food is pizza.

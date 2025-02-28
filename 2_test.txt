@@ -1,7 +1,0 @@
-This is a second file for my project.
-
-Example edit.
-
-Example edit.
-
-Example edit of where main will be different from my bugfix_2 branch.
